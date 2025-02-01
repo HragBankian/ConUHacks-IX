@@ -55,6 +55,10 @@ const HomePage = () => {
         navigate('/unregistered'); 
     };
 
+    const handleGetStartedClick = () => {
+        navigate('/form'); 
+    };
+
     return (
         <>
             <header>
@@ -87,7 +91,7 @@ const HomePage = () => {
                             }}>
                                 Safeguard what matters most <br />and build your wealth with<br /> tailored guidance.
                             </p>
-                            <button className='getStarted' onClick={handleSignInClick}>Get Started</button>
+                            <button className='getStarted' onClick={handleGetStartedClick}>Get Started</button>
                         </div>
                     </h1>
                     <h2>Welcome to SunLife Financial Advisor AI Tool</h2>

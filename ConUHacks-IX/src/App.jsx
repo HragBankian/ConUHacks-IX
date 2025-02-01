@@ -8,6 +8,7 @@ import RRSP from './RRSP';
 import TFSA from './TFSA';
 import FHSA from './FHSA';
 import UnregisteredAcc from './UnregisteredAcc';
+import Form from './Form';
 
 const App = () => {
     return (
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path="/tfsa" element={<TFSA />} />
                 <Route path="/fhsa" element={<FHSA />} />
                 <Route path="/unregistered" element={<UnregisteredAcc />} />
+                <Route path="/form" element={<Form />} />
             </Routes>
         </Router>
     );
