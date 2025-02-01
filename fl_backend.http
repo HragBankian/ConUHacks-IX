@@ -1,0 +1,6 @@
+@fl_backend_HostAddress = http://localhost:5296
+
+GET {{fl_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
