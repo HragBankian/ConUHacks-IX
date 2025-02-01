@@ -3,6 +3,7 @@
     using MySql.Data.MySqlClient;
     using Microsoft.Extensions.Configuration;
     using System;
+    using Dapper;
 
     public class DatabaseService
     {

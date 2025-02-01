@@ -51,3 +51,5 @@ C:\Users\grego\source\repos\fl_backend\fl_backend\obj\Debug\net8.0\refint\fl_bac
 C:\Users\grego\source\repos\fl_backend\fl_backend\obj\Debug\net8.0\fl_backend.pdb
 C:\Users\grego\source\repos\fl_backend\fl_backend\obj\Debug\net8.0\fl_backend.genruntimeconfig.cache
 C:\Users\grego\source\repos\fl_backend\fl_backend\obj\Debug\net8.0\ref\fl_backend.dll
+C:\Users\grego\source\repos\fl_backend\fl_backend\obj\Debug\net8.0\fl_backend.sourcelink.json
+C:\Users\grego\source\repos\fl_backend\fl_backend\bin\Debug\net8.0\Dapper.dll
