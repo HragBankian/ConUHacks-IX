@@ -4,6 +4,7 @@ using MySql.Data.MySqlClient;
 using Microsoft.Extensions.Configuration;
 using Dapper;
 using Microsoft.AspNetCore.Identity;
+using fl_backend.Enumerations;
 
 namespace fl_backend.Services
 {
@@ -14,21 +15,36 @@ namespace fl_backend.Services
                       decimal? annual_income, decimal? net_worth, decimal? chequing_balance, decimal? savings_balance,
                       decimal? monthly_expense, bool? is_home_owner, string occupation, bool is_student,
                       decimal? savings_goal, string investment_risk_profile, decimal? debt_amount,
-                      int? credit_score, bool has_credit_card);
+                      int? credit_score, bool has_credit_card, List<Goal> goals);
         UserModel GetUserById(int id);
         bool DeleteUser(int id);
+
+        void AddUserInvestments(int userId, decimal? fhsaBalance, decimal? fhsaLimit, decimal? fhsaDeducted, decimal? fhsaInvested,
+                               decimal? tfsaBalance, decimal? tfsaLimit, decimal? tfsaInvested,
+                               decimal? rrspBalance, decimal? rrspLimit, decimal? rrspDeducted, decimal? rrspInvested,
+                               decimal? unregisteredBalance);
+        List<Goal> GetGoalsByUserId(int userId);
     }
     public class UserService : IUserService
     {
         private readonly IConfiguration _configuration;
         private readonly IEmailValidator _emailValidator;
         private readonly IPasswordHash _passwordHash;
+        private readonly IFHSAService _fhsaService;
+        private readonly ITFSAService _tfsaService;
+        private readonly IRRSPService _rrspService;
+        private readonly IUnregisteredService _unregisteredService;
 
-        public UserService(IConfiguration configuration, IEmailValidator emailValidator, IPasswordHash passwordHasher)
+        public UserService(IConfiguration configuration, IEmailValidator emailValidator, IPasswordHash passwordHasher,
+            IFHSAService fhsaService, ITFSAService tfsaService, IRRSPService rrspService, IUnregisteredService unregisteredService)
         {
             _configuration = configuration;
             _emailValidator = emailValidator;
             _passwordHash = passwordHasher;
+            _fhsaService = fhsaService;
+            _tfsaService = tfsaService;
+            _rrspService = rrspService;
+            _unregisteredService = unregisteredService;
         }
         public UserModel UserLogin(string email, string password)
         {
@@ -55,7 +71,7 @@ namespace fl_backend.Services
                decimal? annual_income, decimal? net_worth, decimal? chequing_balance, decimal? savings_balance,
                decimal? monthly_expense, bool? is_home_owner, string occupation, bool is_student,
                decimal? savings_goal, string investment_risk_profile, decimal? debt_amount,
-               int? credit_score, bool has_credit_card)
+               int? credit_score, bool has_credit_card, List<Goal> goals)
         {
             if (!_emailValidator.IsValid(email))
             {
@@ -100,6 +116,12 @@ namespace fl_backend.Services
                 HasCreditCard = has_credit_card
             });
 
+            foreach (var goal in goals)
+            {
+                AddGoal(userId, goal, connection);
+            }
+
+
             return GetUserById(userId); // Return the newly added user
         }
 
@@ -121,5 +143,65 @@ namespace fl_backend.Services
 
             return rowsAffected > 0;
         }
+        private void AddGoal(int userId, Goal goal, MySqlConnection connection)
+        {
+            var sql = @"
+        INSERT INTO financial_goal (user_id, goal) 
+        VALUES (@UserId, @Goal);";
+
+            connection.Execute(sql, new
+            {
+                UserId = userId,
+                Goal = goal.ToString() // Convert enum to string before storing
+            });
+        }
+
+        public void AddUserInvestments(int userId, decimal? fhsaBalance, decimal? fhsaLimit, decimal? fhsaDeducted, decimal? fhsaInvested,
+                               decimal? tfsaBalance, decimal? tfsaLimit, decimal? tfsaInvested,
+                               decimal? rrspBalance, decimal? rrspLimit, decimal? rrspDeducted, decimal? rrspInvested,
+                               decimal? unregisteredBalance)
+        {
+            // Check and add FHSA if the user has provided relevant data
+            if (fhsaBalance.HasValue && fhsaLimit.HasValue && fhsaDeducted.HasValue && fhsaInvested.HasValue)
+            {
+                _fhsaService.AddFHSA(userId, fhsaBalance.Value, fhsaLimit.Value, fhsaDeducted.Value, fhsaInvested.Value);
+            }
+
+            // Check and add TFSA if the user has provided relevant data
+            if (tfsaBalance.HasValue && tfsaLimit.HasValue && tfsaInvested.HasValue)
+            {
+                _tfsaService.AddTFSA(userId, tfsaBalance.Value, tfsaLimit.Value, tfsaInvested.Value);
+            }
+
+            // Check and add RRSP if the user has provided relevant data
+            if (rrspBalance.HasValue && rrspLimit.HasValue && rrspDeducted.HasValue && rrspInvested.HasValue)
+            {
+                _rrspService.AddRRSP(userId, rrspBalance.Value, rrspLimit.Value, rrspDeducted.Value, rrspInvested.Value);
+            }
+
+            // Check and add Unregistered if the user has provided relevant data
+            if (unregisteredBalance.HasValue)
+            {
+                _unregisteredService.AddUnregistered(userId, unregisteredBalance.Value);
+            }
+        }
+
+        public List<Goal> GetGoalsByUserId(int userId)
+        {
+            using var connection = new MySqlConnection(_configuration.GetConnectionString("MySqlDatabase"));
+            connection.Open();
+
+            var sql = @"SELECT goal FROM financial_goal WHERE user_id = @UserId;";
+
+            var goalStrings = connection.Query<string>(sql, new { UserId = userId }).ToList();
+
+            // Convert the retrieved goal strings to the Goal enum
+            var goals = goalStrings.Select(g => Enum.Parse<Goal>(g)).ToList();
+
+            return goals;
+        }
+
+
+
     }
 }

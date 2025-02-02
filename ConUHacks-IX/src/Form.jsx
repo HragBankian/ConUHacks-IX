@@ -67,7 +67,6 @@ const Form = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-       
         try {
             const response = await fetch('/api/user/add', {
                 method: 'POST',
