@@ -1,5 +1,3 @@
-# Synthetic Data Generation with Financial Success Scoring
-
 import random
 import pandas as pd
 from datetime import datetime, timedelta
@@ -21,6 +19,7 @@ def generate_age():
     return random.randint(18, MAX_AGE)
 
 # Function to calculate TFSA limit based on age
+# Assume 7000$ per year starting from age 18
 def calculate_tfsa_limit(age):
     return max(0, (age - 18) * 7000)
 
