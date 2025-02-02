@@ -118,6 +118,27 @@
   },
   {
     "ContainingType": "fl_backend.Controllers.UserController",
+    "Method": "AddInvestments",
+    "RelativePath": "api/User/add-investments/{userId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "fl_backend.Models.UserInvestmentRequestModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "fl_backend.Controllers.UserController",
     "Method": "DeleteUser",
     "RelativePath": "api/User/delete/{id}",
     "HttpMethod": "DELETE",
@@ -126,6 +147,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "fl_backend.Controllers.UserController",
+    "Method": "GetFHSAByUserId",
+    "RelativePath": "api/User/fhsa/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -154,24 +191,51 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "fl_backend.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "ContainingType": "fl_backend.Controllers.UserController",
+    "Method": "GetRRSPByUserId",
+    "RelativePath": "api/User/rrsp/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[fl_backend.WeatherForecast, fl_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "fl_backend.Controllers.UserController",
+    "Method": "GetTFSAByUserId",
+    "RelativePath": "api/User/tfsa/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "fl_backend.Controllers.UserController",
+    "Method": "GetUnregisteredByUserId",
+    "RelativePath": "api/User/unregistered/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
