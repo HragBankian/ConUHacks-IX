@@ -112,6 +112,11 @@
         "Name": "has_credit_card",
         "Type": "System.Boolean",
         "IsRequired": false
+      },
+      {
+        "Name": "goals",
+        "Type": "System.Collections.Generic.List\u00601[[fl_backend.Enumerations.Goal, fl_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -157,6 +162,22 @@
     "ContainingType": "fl_backend.Controllers.UserController",
     "Method": "GetFHSAByUserId",
     "RelativePath": "api/User/fhsa/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "fl_backend.Controllers.UserController",
+    "Method": "GetGoals",
+    "RelativePath": "api/User/goals/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
