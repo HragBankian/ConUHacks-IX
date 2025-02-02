@@ -64,10 +64,37 @@ const Form = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         console.log('Form Data:', formData);
+
+        const investmentRequest = {
+            FHSABalance: hasFHSA === 'yes' ? amountInvestedToDate : 0,
+            FHSALimit: hasFHSA === 'yes' ? amountInvestedLastYear : 0,
+            FHSADeducted: hasFHSA === 'yes' ? amountInvestedThisYear : 0,
+            FHSAMoneyInvested: hasFHSA === 'yes' ? yearOpenedFHSA : 0,
+            TFSABalance: hasTFSA === 'yes' ? currentBalanceTHSA : 0,
+            TFSALimit: hasTFSA === 'yes' ? totalAmountInvestedTHSA : 0,
+            TFSAInvested: hasTFSA === 'yes' ? currentBalanceTHSA : 0,
+            RRSPBalance: hasRRSP === 'yes' ? currentBalanceRRSP : 0,
+            RRSPLimit: hasRRSP === 'yes' ? limitRRSP : 0,
+            RRSPDeducted: hasRRSP === 'yes' ? deductedAmountRRSP : 0,
+            RRSPInvested: hasRRSP === 'yes' ? totalAmountInvestedRRSP : 0,
+            UnregisteredBalance: hasUnregistered === 'yes' ? currentBalanceUnregistered : 0,
+        };
+
+        try {
+            const response = await axios.post(`https://localhost:7156/api/User/add-investments/${userId}`, investmentRequest);
+            
+            if (response.status === 200) {
+                alert('Investments added successfully.');
+                navigate('/overview');
+            }
+        } catch (error) {
+            console.error('Error adding investments:', error);
+            alert('An error occurred while adding the investments.');
+        }
       
     };
 
