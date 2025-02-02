@@ -23,11 +23,11 @@ const Form = () => {
         is_home_owner: false,
         occupation: 'Employed',
         is_student: false,
-        savings_goal: '',
+        savings_goal: '',  // Add savings_goal
         investment_risk_profile: 'Low',
-        debt_amount: '',
-        credit_score: '',
-        has_credit_card: false,
+        debt_amount: '',   // Add debt_amount
+        credit_score: '',  // Add credit_score
+        has_credit_card: false, // Add has_credit_card
         financial_goals: [],  // Array to hold multiple selected goals
         rrsp_amount: '',
         tfsa_amount: '',
@@ -210,7 +210,6 @@ const Form = () => {
                         <option value="Self-Employed">Self-Employed</option>
                         <option value="Unemployed">Unemployed</option>
                         <option value="Retired">Retired</option>
-                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div>
@@ -350,8 +349,51 @@ const Form = () => {
                     </div>
                 </div>
 
-                {/* Investment Risk Profile */}
+                {/* Optional Fields for savings_goal, debt_amount, credit_score, and has_credit_card */}
                 <div>
+                    <label htmlFor="savings_goal">Savings Goal (optional):</label>
+                    <input
+                        type="number"
+                        id="savings_goal"
+                        name="savings_goal"
+                        value={formData.savings_goal}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="debt_amount">Debt Amount (optional):</label>
+                    <input
+                        type="number"
+                        id="debt_amount"
+                        name="debt_amount"
+                        value={formData.debt_amount}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="credit_score">Credit Score (optional):</label>
+                    <input
+                        type="number"
+                        id="credit_score"
+                        name="credit_score"
+                        value={formData.credit_score}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="has_credit_card"
+                            checked={formData.has_credit_card}
+                            onChange={handleChange}
+                        />
+                        Has Credit Card
+                    </label>
+                </div>
+
+                   {/* Investment Risk Profile */}
+                   <div>
                     <label htmlFor="investment_risk_profile">Investment Risk Profile:</label>
                     <select
                         id="investment_risk_profile"
