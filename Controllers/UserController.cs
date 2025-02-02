@@ -49,13 +49,13 @@ namespace fl_backend.Controllers
                decimal? annual_income, decimal? net_worth, decimal? chequing_balance, decimal? savings_balance,
                decimal? monthly_expense, bool? is_home_owner, string occupation, bool is_student,
                decimal? savings_goal, string investment_risk_profile, decimal? debt_amount,
-               int? credit_score, bool has_credit_card)
+               int? credit_score, bool has_credit_card, List<Goal> goals)
         {
             try
             {
                 var user = _userService.AddUser(email, password, first_name, last_name, date_of_birth, annual_income, net_worth,
                                                 chequing_balance, savings_balance, monthly_expense, is_home_owner, occupation,
-                                                is_student, savings_goal, investment_risk_profile, debt_amount, credit_score, has_credit_card);
+                                                is_student, savings_goal, investment_risk_profile, debt_amount, credit_score, has_credit_card, goals);
                 return Ok(user);
             }
             catch (ArgumentException ex)
@@ -207,6 +207,21 @@ namespace fl_backend.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        [HttpGet("goals/{userId}")]
+        public IActionResult GetGoals(int userId)
+        {
+            try
+            {
+                var goals = _userService.GetGoalsByUserId(userId);
+                return Ok(goals);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = $"An error occurred: {ex.Message}" });
+            }
+        }
+
 
 
     }
