@@ -42,6 +42,7 @@ const HeaderSection = ({ isLoggedIn, handleSignOutClick }) => {
             setShowPlanOptions(false);
         }
     };
+    
 
     return (
         <header className="header-section">
