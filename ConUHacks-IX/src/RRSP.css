@@ -1,0 +1,129 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* Global Styles for RRSP Page */
+.rrsp-page {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* RRSP Container */
+.rrsp-container {
+    width: 100%;
+    max-width: 800px; /* Increased width for better readability */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+    text-align: center;
+    position: relative;
+    top: 3%;
+}
+
+/* RRSP Page Header */
+.rrsp-container h1 {
+    color: #160b45;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* Subheading for RRSP Page */
+.rrsp-container h2 {
+    color: #160b45;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* Paragraph Styling for RRSP Page */
+.rrsp-container p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Unordered List for benefits, tips */
+.rrsp-container ul {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.rrsp-container ul li {
+    font-size: 16px;
+    color: #160b45;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Link styling (if any links are added later) */
+.rrsp-container a {
+    color: #160b45;
+    text-decoration: none;
+}
+
+.rrsp-container a:hover {
+    text-decoration: underline;
+}
+
+/* Button Styling */
+.rrsp-container button {
+    padding: 10px 20px;
+    background-color: #160b45;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.rrsp-container button:hover {
+    background-color: #f8f9fa;
+    color: #160b45;
+}
+
+/* Responsive Design for RRSP Page */
+@media (max-width: 768px) {
+    .rrsp-container {
+        padding: 15px;
+        width: 90%; /* Adjust width on smaller screens */
+    }
+    
+    .rrsp-container h1 {
+        font-size: 28px;
+    }
+
+    .rrsp-container h2 {
+        text-align: center;
+        font-size: 24px;
+    }
+    .rrsp-container ul {
+        text-align: center;
+    }
+    .rrsp-container p,
+    .rrsp-container ul li {
+        font-size: 14px;
+    }
+
+    .rrsp-container button {
+        padding: 10px;
+    }
+}

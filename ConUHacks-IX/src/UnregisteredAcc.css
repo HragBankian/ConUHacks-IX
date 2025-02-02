@@ -1,0 +1,119 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* Global Styles for Unregistered Account Page */
+.unregistered-page {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Unregistered Account Container */
+.unregistered-container {
+    width: 100%;
+    max-width: 800px; /* Increased width for better readability */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+    text-align: center;
+    position: relative;
+    bottom: 2%;
+}
+
+/* Unregistered Account Page Header */
+.unregistered-container h1 {
+    color: #160b45;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* Subheading for Unregistered Account Page */
+.unregistered-container h2 {
+    color: #160b45;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* Paragraph Styling for Unregistered Account Page */
+.unregistered-container p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* List Styling for Unregistered Account Page */
+.unregistered-container ul {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+/* List Item Styling for Unregistered Account Page */
+.unregistered-container li {
+    margin-bottom: 10px;
+}
+
+/* Button Styling for Unregistered Account Page */
+.unregistered-container button {
+    padding: 10px 20px;
+    background-color: #160b45;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.unregistered-container button:hover {
+    background-color: #f8f9fa;
+    color: #160b45;
+}
+
+/* Responsive Design for Unregistered Investment Account Page */
+@media (max-width: 768px) {
+    .unregistered-container {
+        padding: 15px;
+        width: 90%; /* Adjust width on smaller screens */
+    }
+
+    .unregistered-container h1 {
+        font-size: 28px;
+    }
+
+    .unregistered-container h2 {
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .unregistered-container ul {
+        text-align: center;
+    }
+
+    .unregistered-container p,
+    .unregistered-container ul li {
+        font-size: 14px;
+    }
+
+    .unregistered-container button {
+        padding: 10px;
+    }
+}
