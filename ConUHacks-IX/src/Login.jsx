@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Import axios
+import axios from 'axios'; 
 import './Login.css';
-import Header from './Header';  // Import Header here
+import Header from './Header';  
 
 const Login = ({ setIsLoggedIn }) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState(''); // State to store error message
+    const [errorMessage, setErrorMessage] = useState(''); 
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Send POST request to backend
+
         try {
             const loginData = {
                 email: email,
@@ -23,17 +23,17 @@ const Login = ({ setIsLoggedIn }) => {
             const response = await axios.post('https://localhost:7156/api/User/login', loginData);
             console.log('Response:', response);
             if (response.status === 200) {
-                // Login successful, set user as logged in
+   
                 localStorage.setItem('isLoggedIn', 'true');
                 setIsLoggedIn(true);
-                // Store user details in local storage
+ 
                 localStorage.setItem('user', JSON.stringify(response.data));
-                // Redirect to the home page after logging in
+
                 navigate('/');
             }
         } catch (error) {
             if (error.response && error.response.data && error.response.data.message) {
-                setErrorMessage(error.response.data.message); // Set error message from backend
+                setErrorMessage(error.response.data.message); 
             } else {
                 setErrorMessage("An error occurred, please try again.");
             }
@@ -41,7 +41,7 @@ const Login = ({ setIsLoggedIn }) => {
     };
 
     const handleCreateAccountClick = () => {
-        navigate('/form'); // Navigate to the form page for account creation
+        navigate('/form'); 
     };
 
     return (

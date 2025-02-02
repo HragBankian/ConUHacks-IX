@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
-import logo from './assets/logo.png'; // Your logo file
+import logo from './assets/logo.png';
 
 const HeaderSection = ({ isLoggedIn, handleSignOutClick }) => {
     const navigate = useNavigate();
 
-    // Local state for managing the visibility of the plan options
     const [showPlanOptions, setShowPlanOptions] = useState(false);
 
     const handle_SignInClick = () => {
@@ -53,7 +52,7 @@ const HeaderSection = ({ isLoggedIn, handleSignOutClick }) => {
                 />
                 {/* Use the navigate function to redirect to the homepage on click */}
                 <h1 className="sunlife-title" onClick={() => navigate('/')}>
-                    Sun Life
+                    Fund Life
                 </h1>
                 <button onClick={handle_OverviewClick}>Overview</button>
                 <button onClick={handleMyPlanClick}>

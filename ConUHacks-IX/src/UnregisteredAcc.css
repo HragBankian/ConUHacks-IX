@@ -8,21 +8,20 @@ html, body {
     font-family: Arial, sans-serif;
 }
 
-/* Global Styles for Unregistered Account Page */
+
 .unregistered-page {
     display: flex;
-    justify-content: center; /* Centers content horizontally */
-    align-items: center; /* Centers content vertically */
+    justify-content: center; 
+    align-items: center; 
     height: 100%;
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
 }
 
-/* Unregistered Account Container */
 .unregistered-container {
     width: 100%;
-    max-width: 800px; /* Increased width for better readability */
+    max-width: 800px; 
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -33,7 +32,7 @@ html, body {
     bottom: 2%;
 }
 
-/* Unregistered Account Page Header */
+
 .unregistered-container h1 {
     color: #160b45;
     text-align: center;
@@ -41,14 +40,14 @@ html, body {
     margin-bottom: 20px;
 }
 
-/* Subheading for Unregistered Account Page */
+
 .unregistered-container h2 {
     color: #160b45;
     font-size: 28px;
     margin-bottom: 15px;
 }
 
-/* Paragraph Styling for Unregistered Account Page */
+
 .unregistered-container p {
     color: #333;
     font-size: 16px;
@@ -56,7 +55,7 @@ html, body {
     margin-bottom: 15px;
 }
 
-/* List Styling for Unregistered Account Page */
+
 .unregistered-container ul {
     color: #333;
     font-size: 16px;
@@ -66,12 +65,12 @@ html, body {
     text-align: left;
 }
 
-/* List Item Styling for Unregistered Account Page */
+
 .unregistered-container li {
     margin-bottom: 10px;
 }
 
-/* Button Styling for Unregistered Account Page */
+
 .unregistered-container button {
     padding: 10px 20px;
     background-color: #160b45;
@@ -88,11 +87,11 @@ html, body {
     color: #160b45;
 }
 
-/* Responsive Design for Unregistered Investment Account Page */
+
 @media (max-width: 768px) {
     .unregistered-container {
         padding: 15px;
-        width: 90%; /* Adjust width on smaller screens */
+        width: 90%; 
     }
 
     .unregistered-container h1 {

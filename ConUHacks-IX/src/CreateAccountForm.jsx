@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Import axios
+import axios from 'axios'; 
 import './Form.css';
 import Header from './Header'; 
 
@@ -55,12 +55,11 @@ const CreateAccountForm = () => {
             alert('An error occurred while adding the investments.');
         }
         // Simulate logging in by setting the isLoggedIn state to true
+
         setIsLoggedIn(true);
 
-        // Save the login status to localStorage
         localStorage.setItem('isLoggedIn', 'true');
 
-        // Log the answers for now (you can send this to a backend or next step)
         console.log('User has FHSA:', hasFHSA);
         console.log('User year opened FHSA:', yearOpenedFHSA);
         console.log('User amount invested to date in FHSA:', amountInvestedToDate);
@@ -75,7 +74,6 @@ const CreateAccountForm = () => {
         console.log('User has Unregistered Account:', hasUnregistered);
         console.log('User current balance in Unregistered:', currentBalanceUnregistered);
 
-        // Redirect to the overview page after submitting and logging in
         navigate('/overview');
     };
 
