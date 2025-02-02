@@ -1,0 +1,34 @@
+1. maximum_age 100.
+
+2. Random age generations:
+- 55% between 18 to 40
+- 30% between 41 to 65
+- 10% between 66 to 85
+- 5% between 86 to 100
+
+3. has_credit_card True 85% of the time and False 15% of the time
+
+4. is_student:
+- True 90% of the time if age between 18 to 26 years old
+- True 25% of the time if age between 27 to 35 years old
+- True 5% of the time if age 36 years old or above
+
+5. If is_student True, then occupation_enum only takes "unemployed" or "part-time" values
+
+6. is_retired:
+- Always false if age below 55
+- True 20% of the time if age between 56 to 64
+- True 90% of the time if age above 65
+
+7. financial_success:
+a) Linear classification, normalized (0 to 1)
+b) For each criteria we are considering, scale of intervals instead of having only binary values (0 and 1) as possible values for the score
+c) Score mostly based on the distribution of money in different accounts and debt coverage
+d) Having 6 months worth of expenses in your savings + checkings account is ideal. Having more or less than that will contribute to a worse score
+e) Can have an FHSA iff user is not a homeowner
+f) If user is not a home owner and wants to become a home owner, FHSA is considered a priority. Meaning that having a lot of money in the TFSA, RRSP or unregistered account should lead to a worse score if the FHSA is not maxed out
+g)  If monthly expenses exceeds 70% of monthly income, negative impact on score.  The lower the % of your monthly expenses compared to your monthly income, the better
+h) If goal is to invest for retirement or to retire early, then RRSP is a priority
+i) If invested_amount for FHSA, TFSA or RRSP exceed their respective limit, it negatively impacts the score
+j) Having a lot of money invested in the unregistered account when the TFSA is not maxed out leads to a worse score. If your TFSA is not maxed out, the less money you have in your unregistered account, the better
+k) As a general guideline, the success score related to the amounts invested to be relative. Meaning that if you do not have money invested in your TFSA, FHSA or RRSP, it's not necessarily a bad thing if you have less than 6 months of expenses in your FHSA, RRSP and TFSA. This is very important to keep in mind, where everything is relative based on the users financial situation. The user should be investing based on their monthly expenses, yearly income, how much they have saved up and their debt. Having near maxed out TFSA, FHSA and RRSP is a good thing, but it should not come to the expense of having less than 6 months worth of expenses in your checkings + savings or having a lot of debt for example. Advice will take all these factors into account. For example, the recommendation for a user who has barely any money in their checkings and savings account shouldnt be to first invest it in the TFSA for example
