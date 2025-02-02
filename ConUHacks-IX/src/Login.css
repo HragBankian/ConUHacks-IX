@@ -1,0 +1,83 @@
+/* Ensure only the Login page is affected by the centering layout */
+.login-page {
+    height: 100vh; /* Full viewport height */
+    width: 100%;   /* Full width */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* The container for the form content (it will be centered) */
+.container {
+    width: 100%; /* Make the container responsive */
+    max-width: 400px; /* Set max-width for better readability */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically inside container */
+}
+
+/* Style for the heading */
+h2 {
+    color: #160b45;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure the form takes up the full width of the container */
+}
+
+/* Form divs to handle spacing */
+form div {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* Label styling */
+label {
+    margin-bottom: 5px;
+    color: #160b45;
+    display: block;
+    text-align: left;
+}
+
+/* Input field styling */
+input {
+    width: 100%; /* Make sure the input takes up full container width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+    box-sizing: border-box; /* Ensure padding/border doesn't affect width */
+    color: black
+}
+
+/* Button styling */
+.signin {
+    width: 100%; /* Make button fill the container width */
+    padding: 10px;
+    background-color: #160b45;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Button hover effect */
+.signin:hover {
+    background-color: #f8f9fa;
+    color: #160b45;
+}
