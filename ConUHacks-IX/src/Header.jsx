@@ -42,7 +42,6 @@ const HeaderSection = ({ isLoggedIn, handleSignOutClick }) => {
             setShowPlanOptions(false);
         }
     };
-    
 
     return (
         <header className="header-section">
@@ -52,7 +51,10 @@ const HeaderSection = ({ isLoggedIn, handleSignOutClick }) => {
                     alt="Logo"
                     style={{ maxWidth: '10%', height: 'auto', marginTop: '0px' }}
                 />
-                <h1 className="sunlife-title">Sun Life</h1>
+                {/* Use the navigate function to redirect to the homepage on click */}
+                <h1 className="sunlife-title" onClick={() => navigate('/')}>
+                    Sun Life
+                </h1>
                 <button onClick={handle_OverviewClick}>Overview</button>
                 <button onClick={handleMyPlanClick}>
                     My Plan <span>&#x2193;</span>

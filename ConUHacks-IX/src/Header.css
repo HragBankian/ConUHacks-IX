@@ -20,6 +20,7 @@
     font-weight: bold;
     color: #160b45;
     margin-right: 20px; /* Add some space between the title and the buttons */
+    cursor: pointer;
 }
 
 button {
