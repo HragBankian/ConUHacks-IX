@@ -51,19 +51,6 @@
 }
 
 
-.sunlife-title {
-    font-size: 30px;
-    font-weight: bold;
-    color: #160b45;
-    margin-right: 20px;
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-}
-
 .advisor-image{
     display: flex;
     background-color: blanchedalmond;
@@ -102,25 +89,6 @@ footer {
     padding: 10px 20px;
     background-color: #ffffff;
     text-align: center;
-}
-
-.plan-options {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
-}
-
-.plan-options button {
-    background-color: #ffffff;
-    color: #160b45;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 0px;
-    margin-left: 10px;
-    position: relative;
-    left: 130%;
-    z-index: 3;
 }
 
 button:hover {

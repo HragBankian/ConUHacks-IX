@@ -1,0 +1,79 @@
+/* Header.css */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #160b45;
+    margin-bottom: 0px;
+}
+
+.header-section-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align logo and buttons side by side */
+}
+
+.sunlife-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #160b45;
+    margin-right: 20px; /* Add some space between the title and the buttons */
+}
+
+button {
+    background-color: #160b45;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #160b45;
+}
+
+.sign-in, .sign-out {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+}
+
+.sign-in:hover, .sign-out:hover {
+    background-color: #160b45;
+}
+
+.plan-options {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    top: 8.5%; /* Move it below the parent element */
+    left: 19%; /* Align it horizontally with the button */
+}
+
+.plan-options button {
+    background-color: #ffffff;
+    color: #160b45;
+    padding: 10px 20px;
+    border-radius: 0px; /* Optional: Adds rounded corners */
+    margin-left: 10px;
+    z-index: 3;
+    text-align: justify;
+}
+
+button:hover {
+    background-color: #160b45;
+    color: white;
+}
+
+
+
+

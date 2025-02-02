@@ -1,12 +1,18 @@
 /* Ensure only the Login page is affected by the centering layout */
 .login-page {
-    height: 100vh; /* Full viewport height */
+    height: 80vh; /* Full viewport height */
     width: 100%;   /* Full width */
     display: flex; /* Use flexbox to center content */
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
-    background-color: white;
+    background-color: blanchedalmond;
     font-family: Arial, sans-serif;
+}
+div#root {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
 }
 
 /* The container for the form content (it will be centered) */
@@ -22,6 +28,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center content vertically inside container */
+    margin-top: 0%;
 }
 
 /* Style for the heading */
@@ -41,6 +48,7 @@ form {
 form div {
     margin-bottom: 15px;
     width: 100%;
+    margin-top: 0%;
 }
 
 /* Label styling */

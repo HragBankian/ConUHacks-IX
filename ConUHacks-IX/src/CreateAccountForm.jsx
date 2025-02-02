@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Form.css';
+import Header from './Header'; 
 
 const CreateAccountForm = () => {
     const [hasFHSA, setHasFHSA] = useState('');
