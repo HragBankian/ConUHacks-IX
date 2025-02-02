@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using fl_backend.Models;
 using System;
 using fl_backend.Enumerations;
+using Microsoft.AspNetCore.Identity.Data;
 
 namespace fl_backend.Controllers
 {
@@ -27,9 +28,9 @@ namespace fl_backend.Controllers
 
         // User login endpoint
         [HttpPost("login")]
-        public IActionResult UserLogin(string email, string password)
+        public IActionResult UserLogin([FromBody] LoginRequest loginRequest)
         {
-            var user = _userService.UserLogin(email, password);
+            var user = _userService.UserLogin(loginRequest.Email, loginRequest.Password);
 
             if (user != null)
             {

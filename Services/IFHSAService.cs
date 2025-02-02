@@ -61,7 +61,6 @@ namespace fl_backend.Services
             return fhsa;
         }
 
-        // Calculate the FHSA limit for the user (for example: based on certain conditions)
         public decimal CalculateLimit(int userId)
         {
             // Example calculation logic, can be customized based on requirements
@@ -71,8 +70,7 @@ namespace fl_backend.Services
             var sql = "SELECT SUM(deducted_amount) FROM FHSA WHERE user_id = @UserId";
             var totalDeducted = connection.ExecuteScalar<decimal>(sql, new { UserId = userId });
 
-            // Example: limit is calculated based on total deducted amount
-            decimal limit = 5000 - totalDeducted; // Assume a total limit of $5000, for example
+            decimal limit = 5000 - totalDeducted;
             return limit;
         }
 
