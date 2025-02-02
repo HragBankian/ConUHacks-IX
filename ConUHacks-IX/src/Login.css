@@ -89,3 +89,7 @@ input {
     background-color: #f8f9fa;
     color: #160b45;
 }
+
+.create-account-link {
+    cursor: pointer;
+}
