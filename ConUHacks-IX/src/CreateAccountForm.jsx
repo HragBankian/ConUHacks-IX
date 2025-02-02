@@ -1,30 +1,34 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Form.css'; // Assuming you're reusing the same CSS file
+import './Form.css';
 
 const CreateAccountForm = () => {
-    const handleSubmitButtonClick = () => {
-        navigate('/overview');
-    };
-    const [hasFHSA, setHasFHSA] = useState(''); // Track if the user has FHSA
-    const [hasTFSA, setHasTFSA] = useState(''); // Track if the user has TFSA
-    const [hasRRSP, setHasRRSP] = useState(''); // Track if the user has RRSP
-    const [hasUnregistered, setHasUnregistered] = useState(''); // Track if the user has Unregistered account
-    const [yearOpenedFHSA, setYearOpenedFHSA] = useState(''); // Track year opened for FHSA
-    const [amountInvestedToDate, setAmountInvestedToDate] = useState(''); // Track amount invested to date for FHSA
-    const [amountInvestedLastYear, setAmountInvestedLastYear] = useState(''); // Track amount invested last year for FHSA
-    const [amountInvestedThisYear, setAmountInvestedThisYear] = useState(''); // Track amount invested this year for FHSA
-    const [currentBalanceTHSA, setCurrentBalanceTHSA] = useState(''); // Track current balance for THSA
-    const [totalAmountInvestedTHSA, setTotalAmountInvestedTHSA] = useState(''); // Track total amount invested for THSA
-    const [currentBalanceRRSP, setCurrentBalanceRRSP] = useState(''); // Track current balance for RRSP
-    const [limitRRSP, setLimitRRSP] = useState(''); // Track limit for RRSP
-    const [deductedAmountRRSP, setDeductedAmountRRSP] = useState(''); // Track deducted amount for RRSP
-    const [totalAmountInvestedRRSP, setTotalAmountInvestedRRSP] = useState(''); // Track total invested for RRSP
-    const [currentBalanceUnregistered, setCurrentBalanceUnregistered] = useState(''); // Track current balance for Unregistered account
+    const [hasFHSA, setHasFHSA] = useState('');
+    const [hasTFSA, setHasTFSA] = useState('');
+    const [hasRRSP, setHasRRSP] = useState('');
+    const [hasUnregistered, setHasUnregistered] = useState('');
+    const [yearOpenedFHSA, setYearOpenedFHSA] = useState('');
+    const [amountInvestedToDate, setAmountInvestedToDate] = useState('');
+    const [amountInvestedLastYear, setAmountInvestedLastYear] = useState('');
+    const [amountInvestedThisYear, setAmountInvestedThisYear] = useState('');
+    const [currentBalanceTHSA, setCurrentBalanceTHSA] = useState('');
+    const [totalAmountInvestedTHSA, setTotalAmountInvestedTHSA] = useState('');
+    const [currentBalanceRRSP, setCurrentBalanceRRSP] = useState('');
+    const [limitRRSP, setLimitRRSP] = useState('');
+    const [deductedAmountRRSP, setDeductedAmountRRSP] = useState('');
+    const [totalAmountInvestedRRSP, setTotalAmountInvestedRRSP] = useState('');
+    const [currentBalanceUnregistered, setCurrentBalanceUnregistered] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        // Simulate logging in by setting the isLoggedIn state to true
+        setIsLoggedIn(true);
+
+        // Save the login status to localStorage
+        localStorage.setItem('isLoggedIn', 'true');
 
         // Log the answers for now (you can send this to a backend or next step)
         console.log('User has FHSA:', hasFHSA);
@@ -41,8 +45,8 @@ const CreateAccountForm = () => {
         console.log('User has Unregistered Account:', hasUnregistered);
         console.log('User current balance in Unregistered:', currentBalanceUnregistered);
 
-        // Redirect to another page (for example, the overview or another step)
-        navigate('/overview'); // You can change this as per your navigation logic
+        // Redirect to the overview page after submitting and logging in
+        navigate('/overview');
     };
 
     return (
@@ -115,8 +119,8 @@ const CreateAccountForm = () => {
                     </>
                 )}
 
-                {/* Ask for TFSA if user selects "No" for FHSA or after filling out FHSA details */}
-                {(hasFHSA === 'no' || (hasFHSA === 'yes' && amountInvestedThisYear !== '')) && (
+                {/* TFSA Question */}
+                {hasFHSA !== '' && (
                     <div>
                         <label htmlFor="hasTFSA">Do you have a TFSA account?</label>
                         <select
@@ -161,8 +165,8 @@ const CreateAccountForm = () => {
                     </>
                 )}
 
-                {/* Ask for RRSP after either answering TFSA details or selecting No for TFSA */}
-                {(hasTFSA === 'no' || hasTFSA === 'yes') && (
+                {/* RRSP Question */}
+                {hasTFSA !== '' && (
                     <div>
                         <label htmlFor="hasRRSP">Do you have an RRSP account?</label>
                         <select
@@ -229,10 +233,10 @@ const CreateAccountForm = () => {
                     </>
                 )}
 
-                {/* Ask for Unregistered Account after either answering RRSP details or selecting No for RRSP */}
-                {(hasRRSP === 'no' || hasRRSP === 'yes') && (
+                {/* Unregistered Account Question */}
+                {hasRRSP !== '' && (
                     <div>
-                        <label htmlFor="hasUnregistered">Do you have an Unregistered Account?</label>
+                        <label htmlFor="hasUnregistered">Do you have an Unregistered account?</label>
                         <select
                             id="hasUnregistered"
                             name="hasUnregistered"
@@ -249,23 +253,21 @@ const CreateAccountForm = () => {
 
                 {/* Unregistered Account Details if user selects "Yes" */}
                 {hasUnregistered === 'yes' && (
-                    <>
-                        <div>
-                            <label htmlFor="currentBalanceUnregistered">Current Balance in Unregistered Account</label>
-                            <input
-                                type="number"
-                                id="currentBalanceUnregistered"
-                                name="currentBalanceUnregistered"
-                                value={currentBalanceUnregistered}
-                                onChange={(e) => setCurrentBalanceUnregistered(e.target.value)}
-                                required
-                            />
-                        </div>
-                    </>
+                    <div>
+                        <label htmlFor="currentBalanceUnregistered">Current Balance in Unregistered</label>
+                        <input
+                            type="number"
+                            id="currentBalanceUnregistered"
+                            name="currentBalanceUnregistered"
+                            value={currentBalanceUnregistered}
+                            onChange={(e) => setCurrentBalanceUnregistered(e.target.value)}
+                            required
+                        />
+                    </div>
                 )}
 
-                {/* Submit Button always visible */}
-                <button type="submit" onClick={handleSubmitButtonClick}>Submit</button>
+                {/* Submit Button */}
+                <button type="submit">Submit</button>
             </form>
         </div>
     );
