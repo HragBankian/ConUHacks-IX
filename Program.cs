@@ -12,6 +12,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IEmailValidator, EmailValidator>();
 builder.Services.AddScoped<IPasswordHash, PasswordHash>();
+builder.Services.AddScoped<IFHSAService, FHSAService>();
+builder.Services.AddScoped<ITFSAService, TFSAService>();
+builder.Services.AddScoped<IRRSPService, RRSPService>();
+builder.Services.AddScoped<IUnregisteredService, UnregisteredService>();
 
 var app = builder.Build();
 
