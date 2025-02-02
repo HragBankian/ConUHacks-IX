@@ -37,6 +37,12 @@ const HeaderSection = ({ isLoggedIn, handleSignOutClick }) => {
         navigate('/unregistered');
     };
 
+    const handleClickOutside = (event) => {
+        if (planOptionsRef.current && !planOptionsRef.current.contains(event.target)) {
+            setShowPlanOptions(false);
+        }
+    };
+
     return (
         <header className="header-section">
             <div className="header-section-left">
