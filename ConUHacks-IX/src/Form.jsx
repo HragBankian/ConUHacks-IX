@@ -95,7 +95,7 @@ const Form = () => {
             console.error('Error adding investments:', error);
             alert('An error occurred while adding the investments.');
         }
-      
+        // Simulate logging in by setting the isLoggedIn state to true
     };
 
     return (
