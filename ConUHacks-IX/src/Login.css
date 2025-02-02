@@ -1,10 +1,10 @@
-/* Ensure only the Login page is affected by the centering layout */
+
 .login-page {
-    height: 80vh; /* Full viewport height */
-    width: 100%;   /* Full width */
-    display: flex; /* Use flexbox to center content */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+    height: 80vh; 
+    width: 100%;   
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     background-color: blanchedalmond;
     font-family: Arial, sans-serif;
 }
@@ -15,10 +15,9 @@ div#root {
     background-color: white;
 }
 
-/* The container for the form content (it will be centered) */
 .container {
-    width: 100%; /* Make the container responsive */
-    max-width: 400px; /* Set max-width for better readability */
+    width: 100%; 
+    max-width: 400px; 
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -27,31 +26,28 @@ div#root {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically inside container */
+    justify-content: center; 
     margin-top: 0%;
 }
 
-/* Style for the heading */
+
 h2 {
     color: #160b45;
 }
 
-/* Form styling */
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%; /* Ensure the form takes up the full width of the container */
+    width: 100%; 
 }
 
-/* Form divs to handle spacing */
 form div {
     margin-bottom: 15px;
     width: 100%;
     margin-top: 0%;
 }
 
-/* Label styling */
 label {
     margin-bottom: 5px;
     color: #160b45;
@@ -59,21 +55,19 @@ label {
     text-align: left;
 }
 
-/* Input field styling */
 input {
-    width: 100%; /* Make sure the input takes up full container width */
+    width: 100%; 
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     background-color: white;
-    box-sizing: border-box; /* Ensure padding/border doesn't affect width */
+    box-sizing: border-box; 
     color: black
 }
 
-/* Button styling */
 .signin {
-    width: 100%; /* Make button fill the container width */
+    width: 100%; 
     padding: 10px;
     background-color: #160b45;
     color: white;
@@ -84,7 +78,7 @@ input {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Button hover effect */
+
 .signin:hover {
     background-color: #f8f9fa;
     color: #160b45;

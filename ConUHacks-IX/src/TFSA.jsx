@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import './TFSA.css';
+import chart from './assets/tfsa_age.png';
 
 const TFSA = () => {
     return (
@@ -19,6 +20,11 @@ const TFSA = () => {
                         <li>Withdrawals are tax-free</li>
                         <li>Unused contribution room can be carried forward</li>
                         <li>No restrictions on withdrawals</li>
+                        <img
+                                            src={chart}
+                                            alt="TFSA Chart by Age Group"
+                                            style={{ maxWidth: '90%', height: 'auto', marginTop: '30px', position: 'relative', left: '3%' }}
+                                        />
                     </ul>
                     <h3>Contribution Limits</h3>
                     <p>

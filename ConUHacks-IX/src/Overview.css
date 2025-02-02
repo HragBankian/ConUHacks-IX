@@ -1,0 +1,81 @@
+.overview-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #160b45;
+    font-size: 36px;
+}
+
+h2 {
+    color: #160b45;
+    font-size: 28px;
+}
+
+p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.portfolio-summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.account-card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.account-card h3 {
+    color: #160b45;
+    font-size: 24px;
+}
+
+.account-card p {
+    font-size: 16px;
+}
+
+.investment-chart {
+    margin-top: 40px;
+    padding: 20px;
+    padding-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart {
+    display: grid;
+}
+
+.unr_account-card{
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    left: 50%;
+}
+
+.unr_account-card h3 {
+    color: #160b45;
+    font-size: 24px;
+}
+
+.unr_account-card p {
+    font-size: 16px;
+}

@@ -1,4 +1,4 @@
-/* Header.css */
+
 .header-section {
     display: flex;
     justify-content: space-between;
@@ -12,14 +12,14 @@
 .header-section-left {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Align logo and buttons side by side */
+    justify-content: flex-start; 
 }
 
 .sunlife-title {
     font-size: 30px;
     font-weight: bold;
     color: #160b45;
-    margin-right: 20px; /* Add some space between the title and the buttons */
+    margin-right: 20px; 
     cursor: pointer;
 }
 
@@ -56,15 +56,15 @@ button:hover {
     display: flex;
     flex-direction: column;
     margin: 20px 0;
-    top: 8.5%; /* Move it below the parent element */
-    left: 19%; /* Align it horizontally with the button */
+    top: 8.5%; 
+    left: 19%; 
 }
 
 .plan-options button {
     background-color: #ffffff;
     color: #160b45;
     padding: 10px 20px;
-    border-radius: 0px; /* Optional: Adds rounded corners */
+    border-radius: 0px; 
     margin-left: 10px;
     z-index: 3;
     text-align: justify;

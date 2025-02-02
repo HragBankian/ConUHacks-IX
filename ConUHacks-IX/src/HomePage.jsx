@@ -8,7 +8,6 @@ const HomePage = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
 
-    // Check if the user is logged in when the component mounts
     useEffect(() => {
         const loginStatus = localStorage.getItem('isLoggedIn');
         if (loginStatus === 'true') {
@@ -16,13 +15,12 @@ const HomePage = () => {
         }
     }, []);
 
-    // Sign out handler
     const handleSignOutClick = () => {
         localStorage.removeItem('isLoggedIn');
         setIsLoggedIn(false);
     };
 
-    // Navigate based on login status
+
     const handleGetStartedClick = () => {
         if (isLoggedIn) {
             navigate('/overview');
@@ -53,18 +51,18 @@ const HomePage = () => {
                             </button>
                         </div>
                     </h1>
-                    <h2>Welcome to SunLife Financial Advisor AI Tool</h2>
+                    <h2>Welcome to Fund Life Financial Advisor AI Tool</h2>
                     <div className="advisor-image">
                         <img
                             src={advisorImage}
                             alt="AI Financial Advisor"
                             style={{ maxWidth: '25%', height: 'auto', padding: '20px' }}
                         />
-                        <h2 style={{ position: 'relative', left: '25%' }}>FAQ</h2>
+                        <h2 style={{ position: 'relative', left: '22%' }}>FAQ</h2>
                         <p className="description" style={{ textAlign: 'justify' }}>
                             <br /><br />
                             <strong>Our AI tool helps you manage your finances efficiently and effectively.</strong><br /><br />
-                            <strong>What is SunLife?</strong> SunLife is a financial advisory tool powered by AI.<br /><br />
+                            <strong>What is Fund Life?</strong> Fund Life is a financial advisory tool powered by AI.<br /><br />
                             <strong>How can I sign up?</strong> Click the sign-in button at the top right to get started.<br /><br />
                             <strong>Is my data secure?</strong> Yes, we prioritize your data security and privacy.<br /><br />
                         </p>
@@ -72,7 +70,7 @@ const HomePage = () => {
                 </section>
             </main>
             <footer>
-                <p>&copy; 2025 SunLife. All rights reserved.</p>
+                <p>&copy; 2025 Fund Life. All rights reserved.</p>
             </footer>
         </>
     );

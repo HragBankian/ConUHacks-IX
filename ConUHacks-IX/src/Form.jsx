@@ -24,12 +24,12 @@ const Form = () => {
         is_home_owner: false,
         occupation: 'Employed',
         is_student: false,
-        savings_goal: '',  // Add savings_goal
+        savings_goal: '',  
         investment_risk_profile: 'Low',
-        debt_amount: '',   // Add debt_amount
-        credit_score: '',  // Add credit_score
-        has_credit_card: false, // Add has_credit_card
-        financial_goals: [],  // Array to hold multiple selected goals
+        debt_amount: '',   
+        credit_score: '',  
+        has_credit_card: false, 
+        financial_goals: [], 
         rrsp_amount: '',
         tfsa_amount: '',
         fhsa_amount: '',
@@ -66,9 +66,9 @@ const Form = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission (e.g., create the account, store the data)
+
         console.log('Form Data:', formData);
-        // After successful account creation, you could redirect or store the account details
+      
     };
 
     return (
