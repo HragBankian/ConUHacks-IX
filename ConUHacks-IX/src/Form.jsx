@@ -96,6 +96,46 @@ const Form = () => {
             alert('An error occurred while adding the investments.');
         }
         // Simulate logging in by setting the isLoggedIn state to true
+
+        try {
+            const response = await fetch('/api/user/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: formData.email,
+                    password: formData.password,
+                    first_name: formData.first_name,
+                    last_name: formData.last_name,
+                    date_of_birth: formData.date_of_birth,
+                    annual_income: formData.annual_income,
+                    net_worth: formData.net_worth,
+                    chequing_balance: formData.chequing_balance,
+                    savings_balance: formData.savings_balance,
+                    monthly_expense: formData.monthly_expense,
+                    is_home_owner: formData.is_home_owner,
+                    occupation: formData.occupation,
+                    is_student: formData.is_student,
+                    savings_goal: formData.savings_goal,
+                    investment_risk_profile: formData.investment_risk_profile,
+                    debt_amount: formData.debt_amount,
+                    credit_score: formData.credit_score,
+                    has_credit_card: formData.has_credit_card,
+                    goals: formData.financial_goals.map(goal => ({ name: goal })), // Assuming 'Goal' is an object with a 'name' field
+                }),
+            });
+    
+            if (response.ok) {
+                // Redirect or show success message
+                navigate('/dashboard'); // Example redirection to a dashboard after account creation
+            } else {
+                const errorData = await response.json();
+                console.error('Error:', errorData.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
     };
 
     return (
