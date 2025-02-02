@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+import Header from './Header';  // Import Header here
 
 const Login = ({ setIsLoggedIn }) => {
     const navigate = useNavigate();
@@ -23,43 +24,46 @@ const Login = ({ setIsLoggedIn }) => {
     };
 
     return (
-        <div className="login-page">
-            <div className="container">
-                <h2>Login Page</h2>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="email">Email:</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="password">Password:</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <button className="signin" type="submit">
-                        Sign In
-                    </button>
-                </form>
+        <div>
+            <Header /> {/* Add Header here */}
+            <div className="login-page">
+                <div className="container">
+                    <h2>Login Page</h2>
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <label htmlFor="email">Email:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="password">Password:</label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <button className="signin" type="submit">
+                            Sign In
+                        </button>
+                    </form>
 
-                <p>
-                    Don't have an account?{' '}
-                    <span className="create-account-link" onClick={handleCreateAccountClick}>
-                        Create one here
-                    </span>
-                </p>
+                    <p>
+                        Don't have an account?{' '}
+                        <span className="create-account-link" onClick={handleCreateAccountClick}>
+                            Create one here
+                        </span>
+                    </p>
+                </div>
             </div>
         </div>
     );

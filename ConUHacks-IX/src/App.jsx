@@ -10,6 +10,7 @@ import FHSA from './FHSA';
 import UnregisteredAcc from './UnregisteredAcc';
 import CreateAccountForm from './CreateAccountForm';
 import Form from './Form';
+import Header from './Header';
 
 const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === 'true');
@@ -26,6 +27,7 @@ const App = () => {
                 <Route path="/unregistered" element={<UnregisteredAcc />} />
                 <Route path="/create-account" element={<CreateAccountForm />} />
                 <Route path="/form" element={<Form />} />
+                <Route path="/header"  element={<Header />} />
             </Routes>
         </Router>
     );

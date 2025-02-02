@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header'; 
 import './Form.css';
 
 const Form = () => {
@@ -71,6 +72,7 @@ const Form = () => {
     };
 
     return (
+        
         <div className="form-container">
             <h2>Create Account</h2>
             <form onSubmit={handleSubmit}>
