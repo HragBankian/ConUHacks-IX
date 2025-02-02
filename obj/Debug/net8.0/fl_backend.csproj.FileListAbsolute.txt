@@ -55,3 +55,6 @@ C:\Users\grego\source\repos\fl_backend\fl_backend\obj\Debug\net8.0\fl_backend.so
 C:\Users\grego\source\repos\fl_backend\fl_backend\bin\Debug\net8.0\Dapper.dll
 C:\Users\grego\source\repos\fl_backend\fl_backend\bin\Debug\net8.0\ConUHacks-IX\package-lock.json
 C:\Users\grego\source\repos\fl_backend\fl_backend\bin\Debug\net8.0\ConUHacks-IX\package.json
+C:\Users\grego\source\repos\fl_backend\fl_backend\bin\Debug\net8.0\package-lock.json
+C:\Users\grego\source\repos\fl_backend\fl_backend\bin\Debug\net8.0\package.json
+C:\Users\grego\source\repos\fl_backend\fl_backend\bin\Debug\net8.0\Newtonsoft.Json.dll

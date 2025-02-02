@@ -15,8 +15,13 @@ const Login = ({ setIsLoggedIn }) => {
 
         // Send POST request to backend
         try {
-            const response = await axios.post('https://localhost:7156/api/User/login', { email, password });
-
+            const loginData = {
+                email: email,
+                password: password
+            };
+            console.log('Response:');
+            const response = await axios.post('https://localhost:7156/api/User/login', loginData);
+            console.log('Response:', response);
             if (response.status === 200) {
                 // Login successful, set user as logged in
                 localStorage.setItem('isLoggedIn', 'true');

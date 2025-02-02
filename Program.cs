@@ -17,6 +17,19 @@ builder.Services.AddScoped<ITFSAService, TFSAService>();
 builder.Services.AddScoped<IRRSPService, RRSPService>();
 builder.Services.AddScoped<IUnregisteredService, UnregisteredService>();
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:5173") // Frontend URL
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -25,6 +38,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowFrontend"); // Enable CORS
 
 app.UseHttpsRedirection();
 
